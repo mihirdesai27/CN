@@ -1,4 +1,3 @@
-Kesha
 set ns [new Simulator]
 $ns color 1 Blue
 # set nam output file
