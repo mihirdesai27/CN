@@ -1,0 +1,15 @@
+import socket
+server_socket=socket.socket()
+server_socket.bind(('127.0.0.1',65432))
+server_socket.listen()
+print('server is listening..')
+conn,_= server_socket.accept()
+print(f'Received :{conn.recv(1024).decode()}')
+conn.sendall(' hello from server'.encode())
+conn.close()
+import socket
+client_socket = socket.socket()
+client_socket.connect(('127.0.0.1', 65432))
+client_socket.sendall('Hello from the client!'.encode())
+print(f'Received: {client_socket.recv(1024).decode()}')
+client_socket.close()
